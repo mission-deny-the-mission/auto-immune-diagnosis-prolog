@@ -11,29 +11,37 @@
 :- consult('diseases/vasculitis.pl').
 %consult('diseases/.pl').
 
-conc([], L, L).
-conc([X | L1], L2, [X | L3]) :-
-    conc(L1, L2, L3).
+:- dynamic patientssymptoms/1.
 
-ask_symptom(Symptom) :-
-    write_ln('Symptom'),
-    read(Symptom).
+ask_symptoms2 :-
+    write_ln('Patient\'s symptom'),
+    read(Symptom),
+    (symptom(_, Symptom) ->
+        assert(patientssymptoms(Symptom)),
+        ask_symptoms2;
+        (Symptom = 'stop' ->
+            true
+            ;
+            write_ln('That is not a valid symptom. Please try again.'),
+            ask_symptoms2
+        )
+    ).
 
-identify(Diseases) :-
-    ask_symptom(Symptom),
-    bagof(Disease, symptom(Disease, Symptom), Diseases).
+:- dynamic possible_diseases/1.
 
-Diagnose()
-Diagnose([Symptom], Diseases) :-
-    bagof(Disease, symptom(Disease, Symptom), Diseases).
-    
-Diagnose([Symptom | RestOfSymptoms], Diseases) :-
-    bagof(Disease, and(symptom(Disease, Symptom), member(Disease, Diseases)), NewDiseases),
-    diagnose(NewDiseases).
-    
+find_diseases(Symptom) :-
+    symptom(Disease, Symptom),
+    assert(matching_disease(Disease, Symptom)),
+    (possible_diseases(Disease) ->
+        true;
+        assert(possible_diseases(Disease))
+    ).
 
-ask_symptoms(SymptomsSoFar) :-
-    ask_symptom(Symptom),
-    symptom(_, Symptom) ->
-        conc(Symptom, SymptomsSoFar, X), Diagnose(SymptomsSoFar);
-        ask_symptoms([Symptom | SymptomsSoFar]).
+match_symptoms :-
+    bagof(Symptom, patientssymptoms(Symptom), Symptoms),
+    match_symptoms(Symptoms).
+match_symptoms([]).
+match_symptoms([Head | Tail]) :-
+    Head \= [],
+    find_diseases(Head),
+    match_symptoms(Tail).
