@@ -10,7 +10,8 @@ symptom('chronic granulomatousis disease', 'stomach pain').
 symptom('chronic granulomatousis disease', 'bloody stool').
 symptom('chronic granulomatousis disease', 'anal abcess').
 
-explanation(append('CGD (chronic granulomatousis disease) is where the immune system cannot produce the toxins',
-    'that it uses to break down invading bacteria. This leads to the formation of granulomas thorughout the body.')).
+explanation('chronic granulomatousis disease',
+    append('CGD (chronic granulomatousis disease) is where the immune system cannot produce the toxins',
+        'that it uses to break down invading bacteria. This leads to the formation of granulomas thorughout the body.')).
 
 disease('chronic granulomatousis disease').
