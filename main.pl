@@ -37,25 +37,24 @@
 % using assert/1
 % It knows when the user has finished entering symptoms when they type:
 % stop.
-ask_symptoms2 :-
+ask_symptoms :-
     write_ln('Patient\'s symptom'),
     read(Symptom),
     (symptom(_, Symptom) ->
         assert(patients_symptoms(Symptom)),
-        ask_symptoms2;
+        ask_symptoms;
         (Symptom = 'stop' ->
             true
             ;
             write_ln('That is not a valid symptom. Please try again.'),
-            ask_symptoms2
+            ask_symptoms
         )
     ).
 
 % predicate to match diseases to the symptoms
 match_disease(Disease) :-
-    bagof(Patient_symptom, patients_symptoms(Patient_symptom), [Head | Tail]),
-    symptom(Disease, Head),
-    match_disease(Disease, Tail).
+    bagof(Patient_symptom, patients_symptoms(Patient_symptom), Patient_symptoms),
+    match_disease(Disease, Patient_symptoms).
 
 match_disease(Disease, []).
 match_disease(Disease, [Head | Tail]) :-
@@ -73,7 +72,7 @@ print_array([Head | Tail]) :-
 % main predicate of the program
 main :-
     retractall(patients_symptoms(X)),
-    ask_symptoms2,
+    ask_symptoms,
     bagof(Disease, match_disease(Disease), Diseases),
     (Diseases \= [] ->
         write_ln('Diseases matching all symptoms:'),
