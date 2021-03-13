@@ -8,3 +8,5 @@ symptom('lupus', 'shortness of breath').
 symptom('lupus', 'chest pain').
 symptom('lupus', 'dry eyes').
 symptom('lupus', 'headache, confusion, or memory loss').
+
+disease('lupus').
