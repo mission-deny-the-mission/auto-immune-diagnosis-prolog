@@ -1,12 +1,16 @@
 symptom('lupus', 'fatigue').
 symptom('lupus', 'fever').
-symptom('lupus', 'joint pain, stiffness, or swelling').
-symptom('lupus', 'facial butterfly rash').
-symptom('lupus', 'skin legions').
-symptom('lupus', 'raynaud\'s phenomenon').
-symptom('lupus', 'shortness of breath').
-symptom('lupus', 'chest pain').
-symptom('lupus', 'dry eyes').
-symptom('lupus', 'headache, confusion, or memory loss').
+symptom('lupus', 'joint_pain').
+symptom('lupus', 'stiffness').
+symptom('lupus', 'swelling').
+symptom('lupus', 'facial_butterfly_rash').
+symptom('lupus', 'skin_legions').
+symptom('lupus', 'raynaud\'s_phenomenon').
+symptom('lupus', 'shortness_of_breath').
+symptom('lupus', 'chest_pain').
+symptom('lupus', 'dry_eyes').
+symptom('lupus', 'headache').
+symptom('lupus', 'confusion').
+symptom('lupus', 'memory_loss').
 
 disease('lupus').

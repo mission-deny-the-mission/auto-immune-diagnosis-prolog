@@ -1,14 +1,14 @@
 symptom('chronic granulomatousis disease', 'fever').
-symptom('chronic granulomatousis disease', 'chest pain').
-symptom('chronic granulomatousis disease', 'swollen lymph nodes').
-symptom('chronic granulomatousis disease', 'runny nose').
-symptom('chronic granulomatousis disease', 'skin irritation').
-symptom('chronic granulomatousis disease', 'swelling and redness in mouth').
+symptom('chronic granulomatousis disease', 'chest_pain').
+symptom('chronic granulomatousis disease', 'swollen_lymph_nodes').
+symptom('chronic granulomatousis disease', 'runny_nose').
+symptom('chronic granulomatousis disease', 'skin_irritation').
+symptom('chronic granulomatousis disease', 'swelling_and_redness_in_mouth').
 symptom('chronic granulomatousis disease', 'vomiting').
 symptom('chronic granulomatousis disease', 'diarrhea').
-symptom('chronic granulomatousis disease', 'stomach pain').
-symptom('chronic granulomatousis disease', 'bloody stool').
-symptom('chronic granulomatousis disease', 'anal abcess').
+symptom('chronic granulomatousis disease', 'stomach_pain').
+symptom('chronic granulomatousis disease', 'bloody_stool').
+symptom('chronic granulomatousis disease', 'anal_abcess').
 
 explanation('chronic granulomatousis disease',
     append('CGD (chronic granulomatousis disease) is where the immune system cannot produce the toxins',

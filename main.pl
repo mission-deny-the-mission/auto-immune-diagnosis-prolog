@@ -22,10 +22,13 @@
 
 % consult the files in the knowledge base
 :- consult('diseases/CGD.pl').
+:- consult('diseases/Common variable immunodeficiency.pl').
+:- consult('diseases/goodpasture syndrome.pl').
 :- consult('diseases/Grave\'s disease.pl').
 :- consult('diseases/HIV.pl').
 :- consult('diseases/lupus.pl').
 :- consult('diseases/SCID.pl').
+:- consult('diseases/Scleroderma.pl').
 :- consult('diseases/Type 1 Diabetes.pl').
 :- consult('diseases/vasculitis.pl').
 
@@ -34,7 +37,7 @@
 :- dynamic patients_symptoms/1.
 
 % predicate to get a list of symptoms by the user and store them in memory
-% using assert/1
+% using assert/1 as the patients_symptoms/1 predicate.
 % It knows when the user has finished entering symptoms when they type:
 % stop.
 ask_symptoms :-
@@ -73,8 +76,7 @@ print_array([Head | Tail]) :-
 main :-
     retractall(patients_symptoms(X)),
     ask_symptoms,
-    bagof(Disease, match_disease(Disease), Diseases),
-    (Diseases \= [] ->
+    (bagof(Disease, match_disease(Disease), Diseases) ->
         write_ln('Diseases matching all symptoms:'),
 		print_array(Diseases);
 		write_ln('Could not find a disease that matches all of the symptoms.')

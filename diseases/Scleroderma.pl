@@ -1,6 +1,6 @@
 symptom('scleroderma', 'calcinosis').
-symptom('scleroderma', 'raynaud\'s phenomenon').
-symptom('scleroderma', 'esophageal dysfunction').
+symptom('scleroderma', 'raynaud\'s_phenomenon').
+symptom('scleroderma', 'esophageal_dysfunction').
 symptom('scleroderma', 'sclerodactly').
 symptom('scleroderma', 'telangiectasia').
 
